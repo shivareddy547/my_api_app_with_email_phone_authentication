@@ -1,0 +1,24 @@
+/* Custom styles for Swagger UI */
+.swagger-ui .topbar { display: none; }
+.swagger-ui .info { margin: 20px 0; }
+.swagger-ui .scheme-container { margin: 0 0 20px 0; }
+
+/* Ensure en-US language display */
+.swagger-ui .opblock-summary-description,
+.swagger-ui .opblock .opblock-summary-operation-id,
+.swagger-ui .opblock .opblock-summary-path,
+.swagger-ui .opblock .opblock-summary-path__deprecated,
+.swagger-ui .opblock-tag,
+.swagger-ui .opblock-tag small,
+.swagger-ui .parameter__type,
+.swagger-ui .model-title,
+.swagger-ui section.models h4,
+.swagger-ui .model {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+}
+
+/* Ensure proper text direction for en-US */
+.swagger-ui * {
+  direction: ltr;
+  text-align: left;
+}

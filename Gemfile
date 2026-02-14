@@ -45,3 +45,22 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 end
+  # RSwag for API documentation
+  gem "rswag", "~> 2.10"
+  gem "rswag-specs", "~> 2.10"
+  gem "rswag-api", "~> 2.10"
+  gem "rswag-ui", "~> 2.10"
+
+gem 'devise'
+gem 'devise-jwt'
+
+# Phone and OTP
+gem 'phonelib'
+gem 'twilio-ruby' # Optional: for SMS OTP
+gem 'rotp' # For OTP generation
+
+# Security and utilities
+gem 'dotenv-rails'
+gem 'bcrypt', '~> 3.1.7'
+
+gem 'active_model_serializers', '~> 0.10.14'
