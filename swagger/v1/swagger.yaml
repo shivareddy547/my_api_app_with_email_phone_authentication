@@ -100,6 +100,10 @@ paths:
               description: Update timestamp
         full_path: /Users/sadudodla/shiva/user_projects/1/my_api_app/app/models/contact.rb
         attributes: *id001
+      x-serializers:
+      - name: contact
+        path: app/serializers/contact_serializer.rb
+        full_path: /Users/sadudodla/shiva/user_projects/1/my_api_app/app/serializers/contact_serializer.rb
       x-spec:
         path: spec/requests/contacts_spec.rb
         full_path: /Users/sadudodla/shiva/user_projects/1/my_api_app/spec/requests/contacts_spec.rb
@@ -116,6 +120,10 @@ paths:
                 contact:
                   type: object
                   properties:
+                    name:
+                      type: string
+                      example: John Doe
+                      description: Name
                     description:
                       type: string
                       example: Sample description
@@ -125,21 +133,17 @@ paths:
                       example: john@example.com
                       format: email
                       description: Email
-                    name:
-                      type: string
-                      example: John Doe
-                      description: Name
                   required:
+                  - name
                   - description
                   - email
-                  - name
             examples:
               example:
                 value:
                   contact:
+                    name: John Doe
                     description: Sample description
                     email: john@example.com
-                    name: John Doe
         description: POST data for contact
     get:
       tags:
@@ -203,7 +207,7 @@ paths:
         full_path: /Users/sadudodla/shiva/user_projects/1/my_api_app/app/controllers/api/contacts_controller.rb
       x-model:
         name: contact
-        path: &id003
+        path:
           path: app/models/contact.rb
           attributes: &id002
             created_at:
@@ -216,6 +220,10 @@ paths:
               description: Update timestamp
         full_path: /Users/sadudodla/shiva/user_projects/1/my_api_app/app/models/contact.rb
         attributes: *id002
+      x-serializers:
+      - name: contact
+        path: app/serializers/contact_serializer.rb
+        full_path: /Users/sadudodla/shiva/user_projects/1/my_api_app/app/serializers/contact_serializer.rb
       x-spec:
         path: spec/requests/contacts_spec.rb
         full_path: /Users/sadudodla/shiva/user_projects/1/my_api_app/spec/requests/contacts_spec.rb
@@ -239,12 +247,6 @@ paths:
           default: 20
           maximum: 100
         description: Items per page
-      - name: description
-        in: query
-        required: false
-        schema:
-          type: string
-        description: Filter by description
       - name: email
         in: query
         required: false
@@ -252,6 +254,12 @@ paths:
           type: string
           format: email
         description: Filter by email
+      - name: description
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter by description
       - name: name
         in: query
         required: false
@@ -339,29 +347,29 @@ paths:
                 auth:
                   type: object
                   properties:
-                    password_confirmation:
+                    phone_number:
                       type: string
-                      example: password123
-                      format: date-time
-                      description: Password Confirmation
+                      example: 123-456-7890
+                      description: Phone Number
                     name:
                       type: string
                       example: John Doe
                       description: Name
-                    email:
-                      type: string
-                      example: john@example.com
-                      format: email
-                      description: Email
                     password:
                       type: string
                       example: password123
                       format: password
                       description: Password
-                    phone_number:
+                    password_confirmation:
                       type: string
-                      example: 123-456-7890
-                      description: Phone Number
+                      example: password123
+                      format: date-time
+                      description: Password Confirmation
+                    email:
+                      type: string
+                      example: john@example.com
+                      format: email
+                      description: Email
                   required:
                   - name
                   - email
@@ -369,11 +377,11 @@ paths:
               example:
                 value:
                   auth:
-                    password_confirmation: password123
-                    name: John Doe
-                    email: john@example.com
-                    password: password123
                     phone_number: 123-456-7890
+                    name: John Doe
+                    password: password123
+                    password_confirmation: password123
+                    email: john@example.com
         description: POST data for auth
       description: Creates a new resource record
   /api/auth/login:
@@ -457,29 +465,29 @@ paths:
                 auth:
                   type: object
                   properties:
-                    password_confirmation:
+                    phone_number:
                       type: string
-                      example: password123
-                      format: date-time
-                      description: Password Confirmation
+                      example: 123-456-7890
+                      description: Phone Number
                     name:
                       type: string
                       example: John Doe
                       description: Name
-                    email:
-                      type: string
-                      example: john@example.com
-                      format: email
-                      description: Email
                     password:
                       type: string
                       example: password123
                       format: password
                       description: Password
-                    phone_number:
+                    password_confirmation:
                       type: string
-                      example: 123-456-7890
-                      description: Phone Number
+                      example: password123
+                      format: date-time
+                      description: Password Confirmation
+                    email:
+                      type: string
+                      example: john@example.com
+                      format: email
+                      description: Email
                   required:
                   - name
                   - email
@@ -487,11 +495,11 @@ paths:
               example:
                 value:
                   auth:
-                    password_confirmation: password123
-                    name: John Doe
-                    email: john@example.com
-                    password: password123
                     phone_number: 123-456-7890
+                    name: John Doe
+                    password: password123
+                    password_confirmation: password123
+                    email: john@example.com
         description: POST data for auth
       description: Creates a new resource record
   /api/auth/otp_login:
@@ -575,29 +583,29 @@ paths:
                 auth:
                   type: object
                   properties:
-                    password_confirmation:
+                    phone_number:
                       type: string
-                      example: password123
-                      format: date-time
-                      description: Password Confirmation
+                      example: 123-456-7890
+                      description: Phone Number
                     name:
                       type: string
                       example: John Doe
                       description: Name
-                    email:
-                      type: string
-                      example: john@example.com
-                      format: email
-                      description: Email
                     password:
                       type: string
                       example: password123
                       format: password
                       description: Password
-                    phone_number:
+                    password_confirmation:
                       type: string
-                      example: 123-456-7890
-                      description: Phone Number
+                      example: password123
+                      format: date-time
+                      description: Password Confirmation
+                    email:
+                      type: string
+                      example: john@example.com
+                      format: email
+                      description: Email
                   required:
                   - name
                   - email
@@ -605,11 +613,11 @@ paths:
               example:
                 value:
                   auth:
-                    password_confirmation: password123
-                    name: John Doe
-                    email: john@example.com
-                    password: password123
                     phone_number: 123-456-7890
+                    name: John Doe
+                    password: password123
+                    password_confirmation: password123
+                    email: john@example.com
         description: POST data for auth
       description: Creates a new resource record
   /api/auth/verify_otp:
@@ -693,29 +701,29 @@ paths:
                 auth:
                   type: object
                   properties:
-                    password_confirmation:
+                    phone_number:
                       type: string
-                      example: password123
-                      format: date-time
-                      description: Password Confirmation
+                      example: 123-456-7890
+                      description: Phone Number
                     name:
                       type: string
                       example: John Doe
                       description: Name
-                    email:
-                      type: string
-                      example: john@example.com
-                      format: email
-                      description: Email
                     password:
                       type: string
                       example: password123
                       format: password
                       description: Password
-                    phone_number:
+                    password_confirmation:
                       type: string
-                      example: 123-456-7890
-                      description: Phone Number
+                      example: password123
+                      format: date-time
+                      description: Password Confirmation
+                    email:
+                      type: string
+                      example: john@example.com
+                      format: email
+                      description: Email
                   required:
                   - name
                   - email
@@ -723,11 +731,11 @@ paths:
               example:
                 value:
                   auth:
-                    password_confirmation: password123
-                    name: John Doe
-                    email: john@example.com
-                    password: password123
                     phone_number: 123-456-7890
+                    name: John Doe
+                    password: password123
+                    password_confirmation: password123
+                    email: john@example.com
         description: POST data for auth
       description: Creates a new resource record
   /api/auth/refresh:
@@ -811,29 +819,29 @@ paths:
                 auth:
                   type: object
                   properties:
-                    password_confirmation:
+                    phone_number:
                       type: string
-                      example: password123
-                      format: date-time
-                      description: Password Confirmation
+                      example: 123-456-7890
+                      description: Phone Number
                     name:
                       type: string
                       example: John Doe
                       description: Name
-                    email:
-                      type: string
-                      example: john@example.com
-                      format: email
-                      description: Email
                     password:
                       type: string
                       example: password123
                       format: password
                       description: Password
-                    phone_number:
+                    password_confirmation:
                       type: string
-                      example: 123-456-7890
-                      description: Phone Number
+                      example: password123
+                      format: date-time
+                      description: Password Confirmation
+                    email:
+                      type: string
+                      example: john@example.com
+                      format: email
+                      description: Email
                   required:
                   - name
                   - email
@@ -841,11 +849,11 @@ paths:
               example:
                 value:
                   auth:
-                    password_confirmation: password123
-                    name: John Doe
-                    email: john@example.com
-                    password: password123
                     phone_number: 123-456-7890
+                    name: John Doe
+                    password: password123
+                    password_confirmation: password123
+                    email: john@example.com
         description: POST data for auth
       description: Creates a new resource record
   /api/auth/logout:
@@ -962,26 +970,18 @@ paths:
       - bearerAuth: []
       description: GET /api/auth/me (Authentication required)
       parameters:
-      - name: password_confirmation
+      - name: phone_number
         in: query
         required: false
         schema:
           type: string
-          format: date-time
-        description: Filter by password confirmation
+        description: Filter by phone number
       - name: name
         in: query
         required: false
         schema:
           type: string
         description: Filter by name
-      - name: email
-        in: query
-        required: false
-        schema:
-          type: string
-          format: email
-        description: Filter by email
       - name: password
         in: query
         required: false
@@ -989,12 +989,20 @@ paths:
           type: string
           format: password
         description: Filter by password
-      - name: phone_number
+      - name: password_confirmation
         in: query
         required: false
         schema:
           type: string
-        description: Filter by phone number
+          format: date-time
+        description: Filter by password confirmation
+      - name: email
+        in: query
+        required: false
+        schema:
+          type: string
+          format: email
+        description: Filter by email
   /api/auth/password/forgot:
     post:
       tags:
@@ -1079,29 +1087,29 @@ paths:
                 auth:
                   type: object
                   properties:
-                    password_confirmation:
+                    phone_number:
                       type: string
-                      example: password123
-                      format: date-time
-                      description: Password Confirmation
+                      example: 123-456-7890
+                      description: Phone Number
                     name:
                       type: string
                       example: John Doe
                       description: Name
-                    email:
-                      type: string
-                      example: john@example.com
-                      format: email
-                      description: Email
                     password:
                       type: string
                       example: password123
                       format: password
                       description: Password
-                    phone_number:
+                    password_confirmation:
                       type: string
-                      example: 123-456-7890
-                      description: Phone Number
+                      example: password123
+                      format: date-time
+                      description: Password Confirmation
+                    email:
+                      type: string
+                      example: john@example.com
+                      format: email
+                      description: Email
                   required:
                   - name
                   - email
@@ -1109,11 +1117,11 @@ paths:
               example:
                 value:
                   auth:
-                    password_confirmation: password123
-                    name: John Doe
-                    email: john@example.com
-                    password: password123
                     phone_number: 123-456-7890
+                    name: John Doe
+                    password: password123
+                    password_confirmation: password123
+                    email: john@example.com
         description: POST data for auth
   /api/auth/password/reset:
     post:
@@ -1199,29 +1207,29 @@ paths:
                 auth:
                   type: object
                   properties:
-                    password_confirmation:
+                    phone_number:
                       type: string
-                      example: password123
-                      format: date-time
-                      description: Password Confirmation
+                      example: 123-456-7890
+                      description: Phone Number
                     name:
                       type: string
                       example: John Doe
                       description: Name
-                    email:
-                      type: string
-                      example: john@example.com
-                      format: email
-                      description: Email
                     password:
                       type: string
                       example: password123
                       format: password
                       description: Password
-                    phone_number:
+                    password_confirmation:
                       type: string
-                      example: 123-456-7890
-                      description: Phone Number
+                      example: password123
+                      format: date-time
+                      description: Password Confirmation
+                    email:
+                      type: string
+                      example: john@example.com
+                      format: email
+                      description: Email
                   required:
                   - name
                   - email
@@ -1229,11 +1237,11 @@ paths:
               example:
                 value:
                   auth:
-                    password_confirmation: password123
-                    name: John Doe
-                    email: john@example.com
-                    password: password123
                     phone_number: 123-456-7890
+                    name: John Doe
+                    password: password123
+                    password_confirmation: password123
+                    email: john@example.com
         description: POST data for auth
 components:
   schemas:
@@ -1255,7 +1263,17 @@ components:
       contacts: app/controllers/api/contacts_controller.rb
       auth: app/controllers/api/auth_controller.rb
     models:
-      contact: *id003
+      contact:
+        path: app/models/contact.rb
+        attributes:
+          created_at:
+            type: string
+            format: date-time
+            description: Creation timestamp
+          updated_at:
+            type: string
+            format: date-time
+            description: Update timestamp
       jwt_denylist:
         path: app/models/jwt_denylist.rb
         attributes:
@@ -1278,7 +1296,8 @@ components:
             type: string
             format: date-time
             description: Update timestamp
-    serializers: {}
+    serializers:
+      contact: app/serializers/contact_serializer.rb
     helpers: {}
   x-model-attributes:
     contact: *id001

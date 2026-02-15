@@ -2,16 +2,13 @@
 # Path: app/controllers/api/contacts_controller.rb
 module Api
   class ContactsController < ApplicationController
-    def index
-      @contacts = Contact.all
-      render json: @contacts, status: :ok
-    end
 
+    # POST /api/contacts
     def create
       @contact = Contact.new(contact_params)
-      
+
       if @contact.save
-        render json: { message: 'Contact created successfully' }, status: :created
+        render json: @contact, serializer: ContactSerializer, status: :created
       else
         render json: { errors: @contact.errors.full_messages }, status: :unprocessable_entity
       end

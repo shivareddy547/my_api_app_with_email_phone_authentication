@@ -1,15 +1,15 @@
 # API Documentation Summary
 
-Generated: 2026-02-d 11:48:29
+Generated: 2026-02-d 12:50:14
 
 ## Statistics
 - Total Models: 3
 - Total Controllers: 3
-- Total Serializers: 0
+- Total Serializers: 1
 - Total Helpers: 0
-- Total Routes: 11
-- Total Endpoints: 11
-- New Endpoints: 1
+- Total Routes: 10
+- Total Endpoints: 10
+- New Endpoints: 0
 - Modified Endpoints: 1
 
 ## File Paths
@@ -25,6 +25,7 @@ Generated: 2026-02-d 11:48:29
 - `user`: `{'path': 'app/models/user.rb', 'attributes': {'created_at': {'type': 'string', 'format': 'date-time', 'description': 'Creation timestamp'}, 'updated_at': {'type': 'string', 'format': 'date-time', 'description': 'Update timestamp'}}}`
 
 ### Serializers:
+- `contact`: `app/serializers/contact_serializer.rb`
 
 ### Helpers:
 
@@ -44,10 +45,9 @@ Generated: 2026-02-d 11:48:29
 
 ### Endpoints by Controller:
 
-#### ContactsController (2 endpoints)
-- `GET /api/contacts` -> `ContactsController#index` (🆕 NEW)
-  - Model attributes: created_at, updated_at...
+#### ContactsController (1 endpoints)
 - `POST /api/contacts` -> `ContactsController#create`
+  - Serializers: contact
   - Model attributes: created_at, updated_at...
 
 #### AuthController (9 endpoints)

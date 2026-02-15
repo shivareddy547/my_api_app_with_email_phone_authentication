@@ -2,223 +2,6 @@
   "endpoints": [
     {
       "path": "/api/contacts",
-      "verb": "GET",
-      "controller": "ContactsController",
-      "controller_resource": "contacts",
-      "action": "index",
-      "model": "contact",
-      "model_attributes": {
-        "created_at": {
-          "type": "string",
-          "format": "date-time",
-          "description": "Creation timestamp"
-        },
-        "updated_at": {
-          "type": "string",
-          "format": "date-time",
-          "description": "Update timestamp"
-        }
-      },
-      "controller_path": "app/controllers/api/contacts_controller.rb",
-      "controller_full_path": "/Users/sadudodla/shiva/user_projects/1/my_api_app/app/controllers/api/contacts_controller.rb",
-      "model_path": {
-        "path": "app/models/contact.rb",
-        "attributes": {
-          "created_at": {
-            "type": "string",
-            "format": "date-time",
-            "description": "Creation timestamp"
-          },
-          "updated_at": {
-            "type": "string",
-            "format": "date-time",
-            "description": "Update timestamp"
-          }
-        }
-      },
-      "model_full_path": "/Users/sadudodla/shiva/user_projects/1/my_api_app/app/models/contact.rb",
-      "serializer_paths": [],
-      "helper_paths": [],
-      "spec_path": "spec/requests/contacts_spec.rb",
-      "tags": [
-        "Contacts"
-      ],
-      "parameters": [
-        {
-          "name": "page",
-          "in": "query",
-          "required": false,
-          "schema": {
-            "type": "integer",
-            "default": 1,
-            "minimum": 1
-          },
-          "description": "Page number"
-        },
-        {
-          "name": "per_page",
-          "in": "query",
-          "required": false,
-          "schema": {
-            "type": "integer",
-            "default": 20,
-            "maximum": 100
-          },
-          "description": "Items per page"
-        },
-        {
-          "name": "description",
-          "in": "query",
-          "required": false,
-          "schema": {
-            "type": "string"
-          },
-          "description": "Filter by description"
-        },
-        {
-          "name": "email",
-          "in": "query",
-          "required": false,
-          "schema": {
-            "type": "string",
-            "format": "email"
-          },
-          "description": "Filter by email"
-        },
-        {
-          "name": "name",
-          "in": "query",
-          "required": false,
-          "schema": {
-            "type": "string"
-          },
-          "description": "Filter by name"
-        }
-      ],
-      "responses": {
-        "200": {
-          "description": "Success",
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "data": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "integer",
-                          "example": 1
-                        },
-                        "created_at": {
-                          "type": "string",
-                          "format": "date-time",
-                          "example": "2024-01-01T12:00:00Z"
-                        },
-                        "updated_at": {
-                          "type": "string",
-                          "format": "date-time",
-                          "example": "2024-01-01T12:00:00Z"
-                        }
-                      }
-                    }
-                  },
-                  "meta": {
-                    "type": "object",
-                    "properties": {
-                      "page": {
-                        "type": "integer",
-                        "example": 1
-                      },
-                      "per_page": {
-                        "type": "integer",
-                        "example": 20
-                      },
-                      "total": {
-                        "type": "integer",
-                        "example": 100
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "500": {
-          "description": "Internal Server Error",
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "error": {
-                    "type": "string",
-                    "example": "Internal Server Error"
-                  },
-                  "message": {
-                    "type": "string",
-                    "example": "Something went wrong"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "description": "List contacts",
-      "full_info": {
-        "controller_class": "ContactsController",
-        "controller_resource": "contacts",
-        "model_class": "contact",
-        "model_attributes": {
-          "created_at": {
-            "type": "string",
-            "format": "date-time",
-            "description": "Creation timestamp"
-          },
-          "updated_at": {
-            "type": "string",
-            "format": "date-time",
-            "description": "Update timestamp"
-          }
-        },
-        "files": {
-          "controller": {
-            "path": "app/controllers/api/contacts_controller.rb",
-            "full_path": "/Users/sadudodla/shiva/user_projects/1/my_api_app/app/controllers/api/contacts_controller.rb"
-          },
-          "model": {
-            "path": {
-              "path": "app/models/contact.rb",
-              "attributes": {
-                "created_at": {
-                  "type": "string",
-                  "format": "date-time",
-                  "description": "Creation timestamp"
-                },
-                "updated_at": {
-                  "type": "string",
-                  "format": "date-time",
-                  "description": "Update timestamp"
-                }
-              }
-            },
-            "full_path": "/Users/sadudodla/shiva/user_projects/1/my_api_app/app/models/contact.rb"
-          },
-          "serializers": [],
-          "helpers": [],
-          "spec": {
-            "path": "spec/requests/contacts_spec.rb",
-            "full_path": "/Users/sadudodla/shiva/user_projects/1/my_api_app/spec/requests/contacts_spec.rb"
-          }
-        }
-      }
-    },
-    {
-      "path": "/api/contacts",
       "verb": "POST",
       "controller": "ContactsController",
       "controller_resource": "contacts",
@@ -254,7 +37,13 @@
         }
       },
       "model_full_path": "/Users/sadudodla/shiva/user_projects/1/my_api_app/app/models/contact.rb",
-      "serializer_paths": [],
+      "serializer_paths": [
+        {
+          "name": "contact",
+          "path": "app/serializers/contact_serializer.rb",
+          "full_path": "/Users/sadudodla/shiva/user_projects/1/my_api_app/app/serializers/contact_serializer.rb"
+        }
+      ],
       "helper_paths": [],
       "spec_path": "spec/requests/contacts_spec.rb",
       "tags": [
@@ -385,7 +174,13 @@
             },
             "full_path": "/Users/sadudodla/shiva/user_projects/1/my_api_app/app/models/contact.rb"
           },
-          "serializers": [],
+          "serializers": [
+            {
+              "name": "contact",
+              "path": "app/serializers/contact_serializer.rb",
+              "full_path": "/Users/sadudodla/shiva/user_projects/1/my_api_app/app/serializers/contact_serializer.rb"
+            }
+          ],
           "helpers": [],
           "spec": {
             "path": "spec/requests/contacts_spec.rb",
@@ -1137,14 +932,13 @@
       ],
       "parameters": [
         {
-          "name": "password_confirmation",
+          "name": "phone_number",
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           },
-          "description": "Filter by password confirmation"
+          "description": "Filter by phone number"
         },
         {
           "name": "name",
@@ -1154,16 +948,6 @@
             "type": "string"
           },
           "description": "Filter by name"
-        },
-        {
-          "name": "email",
-          "in": "query",
-          "required": false,
-          "schema": {
-            "type": "string",
-            "format": "email"
-          },
-          "description": "Filter by email"
         },
         {
           "name": "password",
@@ -1176,13 +960,24 @@
           "description": "Filter by password"
         },
         {
-          "name": "phone_number",
+          "name": "password_confirmation",
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string"
+            "type": "string",
+            "format": "date-time"
           },
-          "description": "Filter by phone number"
+          "description": "Filter by password confirmation"
+        },
+        {
+          "name": "email",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "format": "email"
+          },
+          "description": "Filter by email"
         }
       ],
       "responses": {
@@ -1614,7 +1409,13 @@
       "full_path": "/Users/sadudodla/shiva/user_projects/1/my_api_app/app/models/contact.rb"
     }
   },
-  "serializers": {},
+  "serializers": {
+    "contact": {
+      "path": "app/serializers/contact_serializer.rb",
+      "full_path": "/Users/sadudodla/shiva/user_projects/1/my_api_app/app/serializers/contact_serializer.rb",
+      "class_name": "ContactSerializer"
+    }
+  },
   "helpers": {},
   "model_attributes": {
     "contact": {
@@ -1654,5 +1455,5 @@
       }
     }
   },
-  "generated_at": "2026-02-14T11:48:29.087720"
+  "generated_at": "2026-02-14T12:50:14.203073"
 }

@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   namespace :api do
-    resources :contacts, only: [:index, :create]
+    resources :contacts, only: [:create]
 
-     post 'auth/signup', to: 'auth#signup'
+    post 'auth/signup', to: 'auth#signup'
     post 'auth/login', to: 'auth#login'
     post 'auth/otp_login', to: 'auth#otp_login'
     post 'auth/verify_otp', to: 'auth#verify_otp'
