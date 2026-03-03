@@ -25,11 +25,14 @@ class ApplicationController < ActionController::API
   end
 
   def authenticate_with_token(token)
+
     @decoded_token = decode_token(token)
+
     @current_user = User.find(@decoded_token['user_id'])
 
     # Check if token is revoked
     if JwtDenylist.exists?(jti: @decoded_token['jti'])
+
       render_unauthorized('Token has been revoked')
     end
   rescue ActiveRecord::RecordNotFound

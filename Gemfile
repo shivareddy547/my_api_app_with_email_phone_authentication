@@ -46,6 +46,12 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 end
   # RSwag for API documentation
+  gem "rswag", "~> 2.10"
+  gem "rswag-specs", "~> 2.10"
+  gem "rswag-api", "~> 2.10"
+  gem "rswag-ui", "~> 2.10"
+
+  # RSwag for API documentation
 
 
 gem 'devise'

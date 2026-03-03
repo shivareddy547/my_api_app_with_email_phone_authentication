@@ -1,0 +1,716 @@
+[
+  {
+    "session_id": "ai_session_20260219_182526_f7d23131",
+    "timestamp": "2026-02-19T18:25:27.455958",
+    "project_path": "/Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication",
+    "generated_migrations": [
+      "20260219182530_create_categories.rb",
+      "20260219182527_create_payments.rb",
+      "20260219182528_create_menu_items.rb",
+      "20260219182529_create_orders.rb"
+    ],
+    "generated_models": [
+      "Contact",
+      "JwtDenylist",
+      "User",
+      "MenuItem",
+      "Category",
+      "Order",
+      "Payment",
+      "app/models/contact.rb"
+    ],
+    "modified_files": [
+      "db/migrate/20260219182530_create_categories.rb",
+      "db/migrate/20260219182527_create_payments.rb",
+      "db/migrate/20260219182528_create_menu_items.rb",
+      "db/migrate/20260219182529_create_orders.rb",
+      "app/models/contact.rb",
+      "app/models/jwt_denylist.rb",
+      "app/models/user.rb",
+      "app/models/menu_item.rb",
+      "app/models/category.rb",
+      "app/models/order.rb",
+      "app/models/payment.rb"
+    ],
+    "start_git_commit": "a2773991269de426e579d132f03512e01d6d0127",
+    "user_id": 1,
+    "project_id": 489,
+    "preserve_sample_data": false,
+    "generate_seeds": false,
+    "status": "migrations_generated",
+    "description": "Generated 4 migrations and 8 models",
+    "old_yaml": "models_current.yaml",
+    "new_yaml": "models_custom.yaml"
+  },
+  {
+    "session_id": "ai_session_20260219_182526_f7d23131",
+    "timestamp": "2026-02-19T18:26:16.364515",
+    "project_path": "/Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication",
+    "generated_migrations": [
+      "20260219182530_create_categories.rb",
+      "20260219182529_create_orders.rb",
+      "20260219182528_create_menu_items.rb",
+      "20260219182527_create_payments.rb"
+    ],
+    "modified_files": [
+      ".ai_change_sessions.json",
+      "app/models/category.rb",
+      "app/models/contact.rb",
+      "app/models/jwt_denylist.rb",
+      "app/models/menu_item.rb",
+      "app/models/order.rb",
+      "app/models/payment.rb",
+      "app/models/user.rb",
+      "db/migrate/20260219182527_create_payments.rb",
+      "db/migrate/20260219182528_create_menu_items.rb",
+      "db/migrate/20260219182529_create_orders.rb",
+      "db/migrate/20260219182530_create_categories.rb"
+    ],
+    "start_git_commit": "a2773991269de426e579d132f03512e01d6d0127",
+    "end_git_commit": "ca863702bf54aa2c8e380d691ba384c0de926578",
+    "status": "active"
+  },
+  {
+    "session_id": "ai_session_20260221_210256_cc957145",
+    "timestamp": "2026-02-21T21:02:57.875731",
+    "project_path": "/Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication",
+    "generated_migrations": [
+      "20260221210257_create_tables.rb",
+      "20260221210258_create_floors.rb"
+    ],
+    "generated_models": [
+      "JwtDenylist",
+      "User",
+      "Floor",
+      "Table",
+      "app/models/jwt_denylist.rb"
+    ],
+    "modified_files": [
+      "db/migrate/20260221210257_create_tables.rb",
+      "db/migrate/20260221210258_create_floors.rb",
+      "app/models/jwt_denylist.rb",
+      "app/models/user.rb",
+      "app/models/floor.rb",
+      "app/models/table.rb"
+    ],
+    "start_git_commit": "bbcabd6950988dd8fedae7a8f3a93032df19e67d",
+    "user_id": 1,
+    "project_id": 489,
+    "preserve_sample_data": false,
+    "generate_seeds": false,
+    "status": "migrations_generated",
+    "description": "Generated 2 migrations and 5 models",
+    "old_yaml": "models_current.yaml",
+    "new_yaml": "models_custom.yaml"
+  },
+  {
+    "session_id": "ai_session_20260221_210256_cc957145",
+    "timestamp": "2026-02-21T21:03:40.731219",
+    "project_path": "/Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication",
+    "generated_migrations": [
+      "20260221210258_create_floors.rb",
+      "20260221210257_create_tables.rb"
+    ],
+    "modified_files": [
+      ".ai_change_sessions.json",
+      "app/models/floor.rb",
+      "app/models/jwt_denylist.rb",
+      "app/models/table.rb",
+      "app/models/user.rb",
+      "db/migrate/20260221210257_create_tables.rb",
+      "db/migrate/20260221210258_create_floors.rb"
+    ],
+    "start_git_commit": "bbcabd6950988dd8fedae7a8f3a93032df19e67d",
+    "end_git_commit": "42594002aca6786bb807f92618837d031759ed98",
+    "status": "active"
+  },
+  {
+    "session_id": "ai_session_20260222_125058_ca0a0bc4",
+    "timestamp": "2026-02-22T12:51:00.624106",
+    "project_path": "/Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication",
+    "generated_migrations": [
+      "20260222125105_add_foreign_key_to_floors_on_user:User:user_id.rb",
+      "20260222125102_add_index_on_user_id_to_tables.rb",
+      "20260222125103_add_index_on_user_id_to_floors.rb",
+      "20260222125100_add_user_id_to_tables.rb",
+      "20260222125104_add_foreign_key_to_tables_on_user:User:user_id.rb",
+      "20260222125101_add_user_id_to_floors.rb"
+    ],
+    "generated_models": [
+      "Table",
+      "Floor",
+      "User",
+      "app/models/table.rb"
+    ],
+    "modified_files": [
+      "db/migrate/20260222125105_add_foreign_key_to_floors_on_user:User:user_id.rb",
+      "db/migrate/20260222125102_add_index_on_user_id_to_tables.rb",
+      "db/migrate/20260222125103_add_index_on_user_id_to_floors.rb",
+      "db/migrate/20260222125100_add_user_id_to_tables.rb",
+      "db/migrate/20260222125104_add_foreign_key_to_tables_on_user:User:user_id.rb",
+      "db/migrate/20260222125101_add_user_id_to_floors.rb",
+      "app/models/table.rb",
+      "app/models/floor.rb",
+      "app/models/user.rb"
+    ],
+    "start_git_commit": "0b5cee7c2cef6496ef49d065e943aa3441098b9a",
+    "user_id": 1,
+    "project_id": 489,
+    "preserve_sample_data": false,
+    "generate_seeds": false,
+    "status": "rolled_back",
+    "description": "Generated 6 migrations and 4 models",
+    "old_yaml": "models_current.yaml",
+    "new_yaml": "models_custom.yaml",
+    "rolled_back_at": "2026-02-22T12:52:09.026602",
+    "rollback_results": [
+      {
+        "migration": "20260222125101_add_user_id_to_floors.rb",
+        "version": "20260222125101",
+        "success": false,
+        "error": "DEPRECATION WARNING: swagger_root= is deprecated and will be removed from rswag-api 3.0 (use openapi_root= instead) (called from block in <main> at /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/config/initializers/rswag.rb:5)\nDEPRECATION WARNING: Rswag::Ui: WARNING: The method will be renamed to \"openapi_endpoint\" in v3.0 (called from block in <main> at /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/config/initializers/rswag.rb:13)\nbin/rails aborted!\nActiveRecord::IllegalMigrationNameError:  (ActiveRecord::IllegalMigrationNameError)\n\nIllegal name for migration file: /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/db/migrate/20260222125104_add_foreign_key_to_tables_on_user:User:user_id.rb\n\t(only lower case letters, numbers, and '_' allowed).\n\n\nTasks: TOP => db:migrate:down\n(See full trace by running task with --trace)\n",
+        "message": "Migration rollback failed"
+      },
+      {
+        "migration": "20260222125104_add_foreign_key_to_tables_on_user:User:user_id.rb",
+        "version": "20260222125104",
+        "success": false,
+        "error": "DEPRECATION WARNING: swagger_root= is deprecated and will be removed from rswag-api 3.0 (use openapi_root= instead) (called from block in <main> at /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/config/initializers/rswag.rb:5)\nDEPRECATION WARNING: Rswag::Ui: WARNING: The method will be renamed to \"openapi_endpoint\" in v3.0 (called from block in <main> at /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/config/initializers/rswag.rb:13)\nbin/rails aborted!\nActiveRecord::IllegalMigrationNameError:  (ActiveRecord::IllegalMigrationNameError)\n\nIllegal name for migration file: /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/db/migrate/20260222125104_add_foreign_key_to_tables_on_user:User:user_id.rb\n\t(only lower case letters, numbers, and '_' allowed).\n\n\nTasks: TOP => db:migrate:down\n(See full trace by running task with --trace)\n",
+        "message": "Migration rollback failed"
+      },
+      {
+        "migration": "20260222125100_add_user_id_to_tables.rb",
+        "version": "20260222125100",
+        "success": false,
+        "error": "DEPRECATION WARNING: swagger_root= is deprecated and will be removed from rswag-api 3.0 (use openapi_root= instead) (called from block in <main> at /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/config/initializers/rswag.rb:5)\nDEPRECATION WARNING: Rswag::Ui: WARNING: The method will be renamed to \"openapi_endpoint\" in v3.0 (called from block in <main> at /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/config/initializers/rswag.rb:13)\nbin/rails aborted!\nActiveRecord::IllegalMigrationNameError:  (ActiveRecord::IllegalMigrationNameError)\n\nIllegal name for migration file: /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/db/migrate/20260222125104_add_foreign_key_to_tables_on_user:User:user_id.rb\n\t(only lower case letters, numbers, and '_' allowed).\n\n\nTasks: TOP => db:migrate:down\n(See full trace by running task with --trace)\n",
+        "message": "Migration rollback failed"
+      },
+      {
+        "migration": "20260222125103_add_index_on_user_id_to_floors.rb",
+        "version": "20260222125103",
+        "success": false,
+        "error": "DEPRECATION WARNING: swagger_root= is deprecated and will be removed from rswag-api 3.0 (use openapi_root= instead) (called from block in <main> at /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/config/initializers/rswag.rb:5)\nDEPRECATION WARNING: Rswag::Ui: WARNING: The method will be renamed to \"openapi_endpoint\" in v3.0 (called from block in <main> at /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/config/initializers/rswag.rb:13)\nbin/rails aborted!\nActiveRecord::IllegalMigrationNameError:  (ActiveRecord::IllegalMigrationNameError)\n\nIllegal name for migration file: /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/db/migrate/20260222125104_add_foreign_key_to_tables_on_user:User:user_id.rb\n\t(only lower case letters, numbers, and '_' allowed).\n\n\nTasks: TOP => db:migrate:down\n(See full trace by running task with --trace)\n",
+        "message": "Migration rollback failed"
+      },
+      {
+        "migration": "20260222125102_add_index_on_user_id_to_tables.rb",
+        "version": "20260222125102",
+        "success": false,
+        "error": "DEPRECATION WARNING: swagger_root= is deprecated and will be removed from rswag-api 3.0 (use openapi_root= instead) (called from block in <main> at /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/config/initializers/rswag.rb:5)\nDEPRECATION WARNING: Rswag::Ui: WARNING: The method will be renamed to \"openapi_endpoint\" in v3.0 (called from block in <main> at /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/config/initializers/rswag.rb:13)\nbin/rails aborted!\nActiveRecord::IllegalMigrationNameError:  (ActiveRecord::IllegalMigrationNameError)\n\nIllegal name for migration file: /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/db/migrate/20260222125104_add_foreign_key_to_tables_on_user:User:user_id.rb\n\t(only lower case letters, numbers, and '_' allowed).\n\n\nTasks: TOP => db:migrate:down\n(See full trace by running task with --trace)\n",
+        "message": "Migration rollback failed"
+      },
+      {
+        "migration": "20260222125105_add_foreign_key_to_floors_on_user:User:user_id.rb",
+        "version": "20260222125105",
+        "success": false,
+        "error": "DEPRECATION WARNING: swagger_root= is deprecated and will be removed from rswag-api 3.0 (use openapi_root= instead) (called from block in <main> at /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/config/initializers/rswag.rb:5)\nDEPRECATION WARNING: Rswag::Ui: WARNING: The method will be renamed to \"openapi_endpoint\" in v3.0 (called from block in <main> at /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/config/initializers/rswag.rb:13)\nbin/rails aborted!\nActiveRecord::IllegalMigrationNameError:  (ActiveRecord::IllegalMigrationNameError)\n\nIllegal name for migration file: /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/db/migrate/20260222125104_add_foreign_key_to_tables_on_user:User:user_id.rb\n\t(only lower case letters, numbers, and '_' allowed).\n\n\nTasks: TOP => db:migrate:down\n(See full trace by running task with --trace)\n",
+        "message": "Migration rollback failed"
+      }
+    ],
+    "git_reset_success": true,
+    "preserved_yaml_files": [
+      "my_api_app.md",
+      "models_current.yaml",
+      "README.md",
+      "models_custom.yaml",
+      ".rubocop.yml",
+      "my_api_app_with_email_phone_authentication.md",
+      "test/fixtures/jwt_denylists.yml",
+      "test/fixtures/users.yml",
+      "swagger/v1/swagger.yaml",
+      "config/cable.yml",
+      "config/recurring.yml",
+      "config/storage.yml",
+      "config/deploy.yml",
+      "config/database.yml",
+      "config/cache.yml",
+      "config/queue.yml",
+      "config/locales/en.yml",
+      "config/locales/devise.en.yml",
+      "public/api-docs/v1/swagger.yaml",
+      "doc/api_metadata/summary.md",
+      "api-docs/v1/swagger.yaml"
+    ]
+  },
+  {
+    "session_id": "ai_session_20260222_125058_ca0a0bc4",
+    "timestamp": "2026-02-22T12:51:45.828486",
+    "project_path": "/Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication",
+    "generated_migrations": [
+      "20260222125105_add_foreign_key_to_floors_on_user:User:user_id.rb",
+      "20260222125104_add_foreign_key_to_tables_on_user:User:user_id.rb",
+      "20260222125103_add_index_on_user_id_to_floors.rb",
+      "20260222125102_add_index_on_user_id_to_tables.rb",
+      "20260222125101_add_user_id_to_floors.rb",
+      "20260222125100_add_user_id_to_tables.rb"
+    ],
+    "modified_files": [
+      ".ai_change_sessions.json",
+      "app/models/floor.rb",
+      "app/models/table.rb",
+      "app/models/user.rb",
+      "db/migrate/20260222125100_add_user_id_to_tables.rb",
+      "db/migrate/20260222125101_add_user_id_to_floors.rb",
+      "db/migrate/20260222125102_add_index_on_user_id_to_tables.rb",
+      "db/migrate/20260222125103_add_index_on_user_id_to_floors.rb",
+      "db/migrate/20260222125104_add_foreign_key_to_tables_on_user:User:user_id.rb",
+      "db/migrate/20260222125105_add_foreign_key_to_floors_on_user:User:user_id.rb",
+      "doc/api_metadata/endpoints.json",
+      "doc/api_metadata/summary.md",
+      "public/api-docs/index.html"
+    ],
+    "start_git_commit": "0b5cee7c2cef6496ef49d065e943aa3441098b9a",
+    "end_git_commit": "4be50b49e1acb3a60e97ca5575fb5bcf09e98ca6",
+    "status": "active"
+  },
+  {
+    "session_id": "ai_session_20260222_125058_ca0a0bc4",
+    "timestamp": "2026-02-22T12:53:05.624302",
+    "project_path": "/Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication",
+    "generated_migrations": [],
+    "modified_files": [
+      ".ai_change_sessions.json"
+    ],
+    "start_git_commit": "0b5cee7c2cef6496ef49d065e943aa3441098b9a",
+    "end_git_commit": "faaf4180f426955b57b2eaaee8245c16354a9acb",
+    "status": "active"
+  },
+  {
+    "session_id": "ai_session_20260222_134208_c1ac04c4",
+    "timestamp": "2026-02-22T13:42:09.422370",
+    "project_path": "/Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication",
+    "generated_migrations": [
+      "20260222134211_add_index_on_user_id_to_floors.rb",
+      "20260222134212_add_index_on_user_id_to_tables.rb",
+      "20260222134210_add_user_id_to_tables.rb",
+      "20260222134214_add_foreign_key_to_tables_on_user:User:user_id.rb",
+      "20260222134209_add_user_id_to_floors.rb",
+      "20260222134213_add_foreign_key_to_floors_on_user:User:user_id.rb"
+    ],
+    "generated_models": [
+      "Table",
+      "Floor",
+      "User",
+      "app/models/table.rb"
+    ],
+    "modified_files": [
+      "db/migrate/20260222134211_add_index_on_user_id_to_floors.rb",
+      "db/migrate/20260222134212_add_index_on_user_id_to_tables.rb",
+      "db/migrate/20260222134210_add_user_id_to_tables.rb",
+      "db/migrate/20260222134214_add_foreign_key_to_tables_on_user:User:user_id.rb",
+      "db/migrate/20260222134209_add_user_id_to_floors.rb",
+      "db/migrate/20260222134213_add_foreign_key_to_floors_on_user:User:user_id.rb",
+      "app/models/table.rb",
+      "app/models/floor.rb",
+      "app/models/user.rb"
+    ],
+    "start_git_commit": "fc9a6ffb299b6fdf5c79851cbec218b34884c408",
+    "user_id": 1,
+    "project_id": 489,
+    "preserve_sample_data": false,
+    "generate_seeds": false,
+    "status": "rolled_back",
+    "description": "Generated 6 migrations and 4 models",
+    "old_yaml": "models_current.yaml",
+    "new_yaml": "models_custom.yaml",
+    "rolled_back_at": "2026-02-22T13:42:48.966715",
+    "rollback_results": [
+      {
+        "migration": "20260222134213_add_foreign_key_to_floors_on_user:User:user_id.rb",
+        "version": "20260222134213",
+        "success": false,
+        "error": "DEPRECATION WARNING: swagger_root= is deprecated and will be removed from rswag-api 3.0 (use openapi_root= instead) (called from block in <main> at /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/config/initializers/rswag.rb:5)\nDEPRECATION WARNING: Rswag::Ui: WARNING: The method will be renamed to \"openapi_endpoint\" in v3.0 (called from block in <main> at /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/config/initializers/rswag.rb:13)\nbin/rails aborted!\nActiveRecord::IllegalMigrationNameError:  (ActiveRecord::IllegalMigrationNameError)\n\nIllegal name for migration file: /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/db/migrate/20260222134213_add_foreign_key_to_floors_on_user:User:user_id.rb\n\t(only lower case letters, numbers, and '_' allowed).\n\n\nTasks: TOP => db:migrate:down\n(See full trace by running task with --trace)\n",
+        "message": "Migration rollback failed"
+      },
+      {
+        "migration": "20260222134209_add_user_id_to_floors.rb",
+        "version": "20260222134209",
+        "success": false,
+        "error": "DEPRECATION WARNING: swagger_root= is deprecated and will be removed from rswag-api 3.0 (use openapi_root= instead) (called from block in <main> at /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/config/initializers/rswag.rb:5)\nDEPRECATION WARNING: Rswag::Ui: WARNING: The method will be renamed to \"openapi_endpoint\" in v3.0 (called from block in <main> at /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/config/initializers/rswag.rb:13)\nbin/rails aborted!\nActiveRecord::IllegalMigrationNameError:  (ActiveRecord::IllegalMigrationNameError)\n\nIllegal name for migration file: /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/db/migrate/20260222134213_add_foreign_key_to_floors_on_user:User:user_id.rb\n\t(only lower case letters, numbers, and '_' allowed).\n\n\nTasks: TOP => db:migrate:down\n(See full trace by running task with --trace)\n",
+        "message": "Migration rollback failed"
+      },
+      {
+        "migration": "20260222134214_add_foreign_key_to_tables_on_user:User:user_id.rb",
+        "version": "20260222134214",
+        "success": false,
+        "error": "DEPRECATION WARNING: swagger_root= is deprecated and will be removed from rswag-api 3.0 (use openapi_root= instead) (called from block in <main> at /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/config/initializers/rswag.rb:5)\nDEPRECATION WARNING: Rswag::Ui: WARNING: The method will be renamed to \"openapi_endpoint\" in v3.0 (called from block in <main> at /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/config/initializers/rswag.rb:13)\nbin/rails aborted!\nActiveRecord::IllegalMigrationNameError:  (ActiveRecord::IllegalMigrationNameError)\n\nIllegal name for migration file: /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/db/migrate/20260222134213_add_foreign_key_to_floors_on_user:User:user_id.rb\n\t(only lower case letters, numbers, and '_' allowed).\n\n\nTasks: TOP => db:migrate:down\n(See full trace by running task with --trace)\n",
+        "message": "Migration rollback failed"
+      },
+      {
+        "migration": "20260222134210_add_user_id_to_tables.rb",
+        "version": "20260222134210",
+        "success": false,
+        "error": "DEPRECATION WARNING: swagger_root= is deprecated and will be removed from rswag-api 3.0 (use openapi_root= instead) (called from block in <main> at /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/config/initializers/rswag.rb:5)\nDEPRECATION WARNING: Rswag::Ui: WARNING: The method will be renamed to \"openapi_endpoint\" in v3.0 (called from block in <main> at /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/config/initializers/rswag.rb:13)\nbin/rails aborted!\nActiveRecord::IllegalMigrationNameError:  (ActiveRecord::IllegalMigrationNameError)\n\nIllegal name for migration file: /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/db/migrate/20260222134213_add_foreign_key_to_floors_on_user:User:user_id.rb\n\t(only lower case letters, numbers, and '_' allowed).\n\n\nTasks: TOP => db:migrate:down\n(See full trace by running task with --trace)\n",
+        "message": "Migration rollback failed"
+      },
+      {
+        "migration": "20260222134212_add_index_on_user_id_to_tables.rb",
+        "version": "20260222134212",
+        "success": false,
+        "error": "DEPRECATION WARNING: swagger_root= is deprecated and will be removed from rswag-api 3.0 (use openapi_root= instead) (called from block in <main> at /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/config/initializers/rswag.rb:5)\nDEPRECATION WARNING: Rswag::Ui: WARNING: The method will be renamed to \"openapi_endpoint\" in v3.0 (called from block in <main> at /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/config/initializers/rswag.rb:13)\nbin/rails aborted!\nActiveRecord::IllegalMigrationNameError:  (ActiveRecord::IllegalMigrationNameError)\n\nIllegal name for migration file: /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/db/migrate/20260222134213_add_foreign_key_to_floors_on_user:User:user_id.rb\n\t(only lower case letters, numbers, and '_' allowed).\n\n\nTasks: TOP => db:migrate:down\n(See full trace by running task with --trace)\n",
+        "message": "Migration rollback failed"
+      },
+      {
+        "migration": "20260222134211_add_index_on_user_id_to_floors.rb",
+        "version": "20260222134211",
+        "success": false,
+        "error": "DEPRECATION WARNING: swagger_root= is deprecated and will be removed from rswag-api 3.0 (use openapi_root= instead) (called from block in <main> at /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/config/initializers/rswag.rb:5)\nDEPRECATION WARNING: Rswag::Ui: WARNING: The method will be renamed to \"openapi_endpoint\" in v3.0 (called from block in <main> at /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/config/initializers/rswag.rb:13)\nbin/rails aborted!\nActiveRecord::IllegalMigrationNameError:  (ActiveRecord::IllegalMigrationNameError)\n\nIllegal name for migration file: /Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication/db/migrate/20260222134213_add_foreign_key_to_floors_on_user:User:user_id.rb\n\t(only lower case letters, numbers, and '_' allowed).\n\n\nTasks: TOP => db:migrate:down\n(See full trace by running task with --trace)\n",
+        "message": "Migration rollback failed"
+      }
+    ],
+    "git_reset_success": true,
+    "preserved_yaml_files": [
+      "my_api_app.md",
+      "models_current.yaml",
+      "README.md",
+      "models_custom.yaml",
+      ".rubocop.yml",
+      "my_api_app_with_email_phone_authentication.md",
+      "test/fixtures/jwt_denylists.yml",
+      "test/fixtures/users.yml",
+      "swagger/v1/swagger.yaml",
+      "config/cable.yml",
+      "config/recurring.yml",
+      "config/storage.yml",
+      "config/deploy.yml",
+      "config/database.yml",
+      "config/cache.yml",
+      "config/queue.yml",
+      "config/locales/en.yml",
+      "config/locales/devise.en.yml",
+      "public/api-docs/v1/swagger.yaml",
+      "doc/api_metadata/summary.md",
+      "api-docs/v1/swagger.yaml"
+    ]
+  },
+  {
+    "session_id": "ai_session_20260222_134208_c1ac04c4",
+    "timestamp": "2026-02-22T13:42:32.258782",
+    "project_path": "/Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication",
+    "generated_migrations": [
+      "20260222134214_add_foreign_key_to_tables_on_user:User:user_id.rb",
+      "20260222134213_add_foreign_key_to_floors_on_user:User:user_id.rb",
+      "20260222134212_add_index_on_user_id_to_tables.rb",
+      "20260222134211_add_index_on_user_id_to_floors.rb",
+      "20260222134210_add_user_id_to_tables.rb",
+      "20260222134209_add_user_id_to_floors.rb"
+    ],
+    "modified_files": [
+      ".ai_change_sessions.json",
+      "app/models/floor.rb",
+      "app/models/table.rb",
+      "app/models/user.rb",
+      "db/migrate/20260222134209_add_user_id_to_floors.rb",
+      "db/migrate/20260222134210_add_user_id_to_tables.rb",
+      "db/migrate/20260222134211_add_index_on_user_id_to_floors.rb",
+      "db/migrate/20260222134212_add_index_on_user_id_to_tables.rb",
+      "db/migrate/20260222134213_add_foreign_key_to_floors_on_user:User:user_id.rb",
+      "db/migrate/20260222134214_add_foreign_key_to_tables_on_user:User:user_id.rb",
+      "doc/api_metadata/endpoints.json",
+      "doc/api_metadata/summary.md",
+      "public/api-docs/index.html"
+    ],
+    "start_git_commit": "fc9a6ffb299b6fdf5c79851cbec218b34884c408",
+    "end_git_commit": "ab063c09abd5e8eb99085dedac4dbd3a596d97bb",
+    "status": "active"
+  },
+  {
+    "session_id": "ai_session_20260222_143817_268ad598",
+    "timestamp": "2026-02-22T14:38:17.815192",
+    "project_path": "/Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication",
+    "generated_migrations": [
+      "20260222143822_add_foreign_key_to_floors_on_user.rb",
+      "20260222143818_add_user_id_to_floors.rb",
+      "20260222143821_add_foreign_key_to_tables_on_user.rb",
+      "20260222143819_add_index_on_user_id_to_tables.rb",
+      "20260222143817_add_user_id_to_tables.rb",
+      "20260222143820_add_index_on_user_id_to_floors.rb"
+    ],
+    "generated_models": [
+      "Table",
+      "Floor",
+      "User",
+      "app/models/table.rb"
+    ],
+    "modified_files": [
+      "db/migrate/20260222143822_add_foreign_key_to_floors_on_user.rb",
+      "db/migrate/20260222143818_add_user_id_to_floors.rb",
+      "db/migrate/20260222143821_add_foreign_key_to_tables_on_user.rb",
+      "db/migrate/20260222143819_add_index_on_user_id_to_tables.rb",
+      "db/migrate/20260222143817_add_user_id_to_tables.rb",
+      "db/migrate/20260222143820_add_index_on_user_id_to_floors.rb",
+      "app/models/table.rb",
+      "app/models/floor.rb",
+      "app/models/user.rb"
+    ],
+    "start_git_commit": "077b318e6cd06f5a19d9df87d2c97a3d76ee3670",
+    "user_id": 1,
+    "project_id": 489,
+    "preserve_sample_data": false,
+    "generate_seeds": false,
+    "status": "migrations_generated",
+    "description": "Generated 6 migrations and 4 models",
+    "old_yaml": "models_current.yaml",
+    "new_yaml": "models_custom.yaml"
+  },
+  {
+    "session_id": "ai_session_20260222_143817_268ad598",
+    "timestamp": "2026-02-22T14:38:42.112732",
+    "project_path": "/Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication",
+    "generated_migrations": [
+      "20260222143822_add_foreign_key_to_floors_on_user.rb",
+      "20260222143821_add_foreign_key_to_tables_on_user.rb",
+      "20260222143820_add_index_on_user_id_to_floors.rb",
+      "20260222143819_add_index_on_user_id_to_tables.rb",
+      "20260222143818_add_user_id_to_floors.rb",
+      "20260222143817_add_user_id_to_tables.rb"
+    ],
+    "modified_files": [
+      ".ai_change_sessions.json",
+      "app/models/floor.rb",
+      "app/models/table.rb",
+      "app/models/user.rb",
+      "db/migrate/20260222143817_add_user_id_to_tables.rb",
+      "db/migrate/20260222143818_add_user_id_to_floors.rb",
+      "db/migrate/20260222143819_add_index_on_user_id_to_tables.rb",
+      "db/migrate/20260222143820_add_index_on_user_id_to_floors.rb",
+      "db/migrate/20260222143821_add_foreign_key_to_tables_on_user.rb",
+      "db/migrate/20260222143822_add_foreign_key_to_floors_on_user.rb",
+      "doc/api_metadata/endpoints.json",
+      "doc/api_metadata/summary.md",
+      "public/api-docs/index.html"
+    ],
+    "start_git_commit": "077b318e6cd06f5a19d9df87d2c97a3d76ee3670",
+    "end_git_commit": "69cabe5cf285a89cf780a8c7b6d465136775f3df",
+    "status": "active"
+  },
+  {
+    "session_id": "ai_session_20260222_222612_772635c6",
+    "timestamp": "2026-02-22T22:26:12.993293",
+    "project_path": "/Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication",
+    "generated_migrations": [
+      "20260222222613_add_order_type_table_id_customer_name_floor_id_to_orders.rb",
+      "20260222222612_create_order_items.rb"
+    ],
+    "generated_models": [
+      "Order",
+      "OrderItem",
+      "User",
+      "app/models/order.rb"
+    ],
+    "modified_files": [
+      "db/migrate/20260222222613_add_order_type_table_id_customer_name_floor_id_to_orders.rb",
+      "db/migrate/20260222222612_create_order_items.rb",
+      "app/models/order.rb",
+      "app/models/order_item.rb",
+      "app/models/user.rb"
+    ],
+    "start_git_commit": "da4f4982dfabf702bab2e4c6fc3678de02da1589",
+    "user_id": 1,
+    "project_id": 489,
+    "preserve_sample_data": false,
+    "generate_seeds": false,
+    "status": "migrations_generated",
+    "description": "Generated 2 migrations and 4 models",
+    "old_yaml": "models_current.yaml",
+    "new_yaml": "models_custom.yaml"
+  },
+  {
+    "session_id": "ai_session_20260222_225345_47237f77",
+    "timestamp": "2026-02-22T22:53:46.286420",
+    "project_path": "/Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication",
+    "generated_migrations": [
+      "20260222225347_add_foreign_key_to_orders_on_table.rb",
+      "20260222225346_add_order_type_table_id_customer_name_to_orders.rb"
+    ],
+    "generated_models": [
+      "Order",
+      "User",
+      "app/models/order.rb"
+    ],
+    "modified_files": [
+      "db/migrate/20260222225347_add_foreign_key_to_orders_on_table.rb",
+      "db/migrate/20260222225346_add_order_type_table_id_customer_name_to_orders.rb",
+      "app/models/order.rb",
+      "app/models/user.rb"
+    ],
+    "start_git_commit": "0c596a3ee9535e18615003d7121d48b178e57709",
+    "user_id": 1,
+    "project_id": 489,
+    "preserve_sample_data": false,
+    "generate_seeds": false,
+    "status": "rolled_back",
+    "description": "Generated 2 migrations and 3 models",
+    "old_yaml": "models_current.yaml",
+    "new_yaml": "models_custom.yaml",
+    "rolled_back_at": "2026-02-22T22:55:11.946843",
+    "rollback_results": [
+      {
+        "migration": "20260222225346_add_order_type_table_id_customer_name_to_orders.rb",
+        "version": "20260222225346",
+        "success": true,
+        "message": "Migration rolled back successfully"
+      },
+      {
+        "migration": "20260222225347_add_foreign_key_to_orders_on_table.rb",
+        "version": "20260222225347",
+        "success": true,
+        "message": "Migration rolled back successfully"
+      }
+    ],
+    "git_reset_success": true,
+    "preserved_yaml_files": [
+      "my_api_app.md",
+      "models_current.yaml",
+      "README.md",
+      "models_custom.yaml",
+      ".rubocop.yml",
+      "my_api_app_with_email_phone_authentication.md",
+      "test/fixtures/jwt_denylists.yml",
+      "test/fixtures/users.yml",
+      "swagger/v1/swagger.yaml",
+      "config/cable.yml",
+      "config/recurring.yml",
+      "config/storage.yml",
+      "config/deploy.yml",
+      "config/database.yml",
+      "config/cache.yml",
+      "config/queue.yml",
+      "config/locales/en.yml",
+      "config/locales/devise.en.yml",
+      "public/api-docs/v1/swagger.yaml",
+      "doc/api_metadata/summary.md",
+      "api-docs/v1/swagger.yaml"
+    ]
+  },
+  {
+    "session_id": "ai_session_20260222_225345_47237f77",
+    "timestamp": "2026-02-22T22:55:05.630132",
+    "project_path": "/Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication",
+    "generated_migrations": [
+      "20260222225347_add_foreign_key_to_orders_on_table.rb",
+      "20260222225346_add_order_type_table_id_customer_name_to_orders.rb",
+      "20260222222613_add_order_type_table_id_customer_name_floor_id_to_orders.rb",
+      "20260222222612_create_order_items.rb",
+      "20260222143822_add_foreign_key_to_floors_on_user.rb",
+      "20260222143821_add_foreign_key_to_tables_on_user.rb",
+      "20260222143820_add_index_on_user_id_to_floors.rb",
+      "20260222143819_add_index_on_user_id_to_tables.rb",
+      "20260222143818_add_user_id_to_floors.rb",
+      "20260222143817_add_user_id_to_tables.rb"
+    ],
+    "modified_files": [
+      ".ai_change_sessions.json",
+      "app/models/order.rb",
+      "db/migrate/20260222225346_add_order_type_table_id_customer_name_to_orders.rb",
+      "db/migrate/20260222225347_add_foreign_key_to_orders_on_table.rb",
+      "doc/api_metadata/endpoints.json",
+      "doc/api_metadata/summary.md",
+      "public/api-docs/index.html"
+    ],
+    "start_git_commit": "0c596a3ee9535e18615003d7121d48b178e57709",
+    "end_git_commit": "cf6bafd2d379026e7f5c4eb6b3d0a338e303944a",
+    "status": "active"
+  },
+  {
+    "session_id": "ai_session_20260303_134815_35321e52",
+    "timestamp": "2026-03-03T13:48:16.522907",
+    "project_path": "/Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication",
+    "generated_migrations": [
+      "20260303134816_create_staff_members.rb"
+    ],
+    "generated_models": [
+      "Table",
+      "Order",
+      "Floor",
+      "User",
+      "StaffMember",
+      "app/models/table.rb"
+    ],
+    "modified_files": [
+      "db/migrate/20260303134816_create_staff_members.rb",
+      "app/models/table.rb",
+      "app/models/order.rb",
+      "app/models/floor.rb",
+      "app/models/user.rb",
+      "app/models/staff_member.rb"
+    ],
+    "start_git_commit": "d777ce98e05bf4009f37c6fb42f5e99ad6737f98",
+    "user_id": 1,
+    "project_id": 489,
+    "preserve_sample_data": false,
+    "generate_seeds": false,
+    "status": "migrations_generated",
+    "description": "Generated 1 migrations and 6 models",
+    "old_yaml": "models_current.yaml",
+    "new_yaml": "models_custom.yaml"
+  },
+  {
+    "session_id": "ai_session_20260303_134815_35321e52",
+    "timestamp": "2026-03-03T13:48:36.191236",
+    "project_path": "/Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication",
+    "generated_migrations": [
+      "20260303134816_create_staff_members.rb"
+    ],
+    "modified_files": [
+      ".ai_change_sessions.json",
+      "app/models/floor.rb",
+      "app/models/order.rb",
+      "app/models/staff_member.rb",
+      "app/models/table.rb",
+      "app/models/user.rb",
+      "db/migrate/20260303134816_create_staff_members.rb",
+      "doc/api_metadata/endpoints.json",
+      "doc/api_metadata/summary.md",
+      "public/api-docs/index.html"
+    ],
+    "start_git_commit": "d777ce98e05bf4009f37c6fb42f5e99ad6737f98",
+    "end_git_commit": "d964bb0433584fa26315e40c38609a70c7647a6c",
+    "status": "active"
+  },
+  {
+    "session_id": "ai_session_20260303_143320_2a18db61",
+    "timestamp": "2026-03-03T14:33:21.356705",
+    "project_path": "/Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication",
+    "generated_migrations": [
+      "20260303143321_add_user_id_to_staff_members.rb"
+    ],
+    "generated_models": [
+      "StaffMember",
+      "User",
+      "app/models/staff_member.rb"
+    ],
+    "modified_files": [
+      "db/migrate/20260303143321_add_user_id_to_staff_members.rb",
+      "app/models/staff_member.rb",
+      "app/models/user.rb"
+    ],
+    "start_git_commit": "628e0656efcfc644b7c5abfd404d3d7c8f446328",
+    "user_id": 1,
+    "project_id": 489,
+    "preserve_sample_data": false,
+    "generate_seeds": false,
+    "status": "migrations_generated",
+    "description": "Generated 1 migrations and 3 models",
+    "old_yaml": "models_current.yaml",
+    "new_yaml": "models_custom.yaml"
+  },
+  {
+    "session_id": "ai_session_20260303_143320_2a18db61",
+    "timestamp": "2026-03-03T14:33:40.221456",
+    "project_path": "/Users/sadudodla/shiva/user_projects/1/my_api_app_with_email_phone_authentication",
+    "generated_migrations": [
+      "20260303143321_add_user_id_to_staff_members.rb",
+      "20260303134816_create_staff_members.rb"
+    ],
+    "modified_files": [
+      ".ai_change_sessions.json",
+      "app/models/staff_member.rb",
+      "app/models/user.rb",
+      "db/migrate/20260303143321_add_user_id_to_staff_members.rb"
+    ],
+    "start_git_commit": "628e0656efcfc644b7c5abfd404d3d7c8f446328",
+    "end_git_commit": "4f780605965855372740b7a0db10bd6d145fdc42",
+    "status": "active"
+  }
+]

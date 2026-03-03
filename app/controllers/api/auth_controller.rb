@@ -5,9 +5,15 @@ module Api
       only: [:login, :signup, :otp_login, :verify_otp, :refresh, :forgot_password, :reset_password]
 
     # ============================
-    # SIGNUP
+    # SIGNUP (Handles both email/password and phone-only)
     # ============================
     def signup
+      # Check if this is phone-only signup
+      if params[:auth][:phone_number].present? && params[:auth][:email].blank? && params[:auth][:password].blank?
+        return phone_signup
+      end
+
+      # Regular email/password signup
       user = User.new(signup_params)
 
       if user.save
@@ -29,14 +35,103 @@ module Api
     end
 
     # ============================
+    # PHONE-ONLY SIGNUP
+    # ============================
+    def phone_signup
+      phone_number = params[:auth][:phone_number]
+
+      # Validate phone number
+      phone = Phonelib.parse(phone_number)
+      return render_error('Invalid phone number format') unless phone.valid?
+
+      formatted_phone = phone.e164
+
+      # Check if user already exists
+      user = User.find_or_initialize_by(phone_number: formatted_phone)
+
+      if user.new_record?
+        # Create new user with random password
+        user.password = Devise.friendly_token[0, 20]
+        user.password_confirmation = user.password
+        user.name = params[:auth][:name] if params[:auth][:name].present?
+
+        unless user.save
+          return render_error('Failed to create account', user.errors.full_messages)
+        end
+      end
+
+      # Check OTP lock
+      return render_error('Too many OTP attempts. Try again later.') if user.otp_locked?
+
+      # Send OTP
+      otp = user.send_otp_via_sms
+
+      response_data = {
+        phone_number: mask_phone_number(formatted_phone),
+        message: 'OTP sent successfully. Please verify to complete registration.',
+        expires_in: 300
+      }
+
+      # Include OTP in development for testing
+      response_data[:otp] = otp unless Rails.env.production?
+
+      render_success(response_data, 'OTP sent successfully')
+    end
+
+    # ============================
+    # VERIFY OTP
+    # ============================
+    def verify_otp
+      # Check required parameters
+      if params[:phone_number].blank? || params[:otp].blank?
+        return render_error('Phone number and OTP are required')
+      end
+
+      phone_number = params[:phone_number]
+      otp_attempt = params[:otp]
+
+      # Parse phone number
+      phone = Phonelib.parse(phone_number)
+      return render_error('Invalid phone number format') unless phone.valid?
+
+      # Find user
+      user = User.find_by(phone_number: phone.e164)
+      return render_error('User not found') unless user
+
+      # Check OTP lock
+      return render_error('OTP locked. Too many failed attempts. Try again later.') if user.otp_locked?
+
+      # Verify OTP
+      if user.verify_otp(otp_attempt)
+        # Generate JWT token
+        token = user.generate_jwt
+
+        render_success(
+          {
+            user: user_serializer(user),
+            token: token,
+            token_type: 'Bearer',
+            expires_in: 24.hours.to_i,
+            refresh_token: generate_refresh_token(user),
+            phone_verified: true,
+            message: 'Phone number verified successfully. Account is now active.'
+          },
+          'OTP verified successfully'
+        )
+      else
+        render_error('Invalid or expired OTP')
+      end
+    end
+
+    # ============================
     # EMAIL / PASSWORD LOGIN
     # ============================
     def login
-      user = User.find_for_database_authentication(login: login_params[:login])
+
+      user = User.find_for_database_authentication(email: login_params[:email])
 
       return render_error('Invalid login credentials') unless user
       return render_error('Account is locked') if user.access_locked?
-
 
       if user.valid_password?(login_params[:password])
         user.update(failed_attempts: 0)
@@ -58,7 +153,7 @@ module Api
     end
 
     # ============================
-    # OTP LOGIN (WHATSAPP → EMAIL)
+    # OTP LOGIN (Alternative endpoint)
     # ============================
     def otp_login
       phone_number = params[:phone_number]
@@ -72,12 +167,13 @@ module Api
       user = User.find_or_initialize_by(phone_number: formatted_phone)
       if user.new_record?
         user.password = Devise.friendly_token[0, 20]
+        user.name = params[:name] if params[:name].present?
         user.save!
       end
 
       return render_error('Too many OTP attempts. Try again later.') if user.otp_locked?
 
-      otp = user.send_otp_via_sms   # ✅ WhatsApp primary → Email fallback
+      otp = user.send_otp_via_sms
 
       response_data = {
         phone_number: mask_phone_number(formatted_phone),
@@ -85,42 +181,9 @@ module Api
       }
 
       # DEV ONLY
-      unless Rails.env.production?
-        response_data[:otp] = otp
-      end
+      response_data[:otp] = otp unless Rails.env.production?
 
       render_success(response_data, 'OTP sent successfully')
-    end
-
-    # ============================
-    # VERIFY OTP
-    # ============================
-    def verify_otp
-      phone_number = params[:phone_number]
-      otp_attempt  = params[:otp]
-
-      return render_error('Phone number and OTP are required') if phone_number.blank? || otp_attempt.blank?
-
-      phone = Phonelib.parse(phone_number)
-      user  = User.find_by(phone_number: phone.e164)
-
-      return render_error('User not found') unless user
-      return render_error('OTP locked. Try later.') if user.otp_locked?
-
-      if user.verify_otp(otp_attempt)
-        render_success(
-          {
-            user: user_serializer(user),
-            token: user.generate_jwt,
-            token_type: 'Bearer',
-            expires_in: 24.hours.to_i,
-            phone_verified: true
-          },
-          'OTP verified successfully'
-        )
-      else
-        render_error('Invalid or expired OTP')
-      end
     end
 
     # ============================
@@ -232,7 +295,7 @@ module Api
     end
 
     def login_params
-      params.require(:auth).permit(:login, :password)
+      params.require(:auth).permit(:email, :password)
     end
 
     def user_serializer(user)
@@ -250,6 +313,7 @@ module Api
     end
 
     def mask_phone_number(phone)
+      return nil if phone.blank?
       "#{'*' * (phone.length - 4)}#{phone[-4..]}"
     end
 
@@ -262,6 +326,12 @@ module Api
       }
 
       JWT.encode(payload, ENV.fetch('DEVISE_JWT_SECRET_KEY'), 'HS256')
+    end
+
+    def decode_token(token)
+      JWT.decode(token, ENV.fetch('DEVISE_JWT_SECRET_KEY'), true, algorithm: 'HS256')[0]
+    rescue
+      nil
     end
   end
 end

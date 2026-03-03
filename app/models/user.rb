@@ -1,3 +1,4 @@
+# app/models/user.rb
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :trackable, :validatable,
@@ -14,8 +15,16 @@ class User < ApplicationRecord
 
   has_many :jwt_denylists, dependent: :destroy
 
+  has_many :menu_items, class_name: 'MenuItem'
+  has_many :categories, class_name: 'Category'
+  has_many :orders, class_name: 'Order'
+  has_many :payments, class_name: 'Payment'
+   has_many :floors, class_name: 'Floor'
+  has_many :tables, class_name: 'Table'
+  has_many :staff_members, class_name: 'StaffMember'
+
   # ===============================
-  # OTP CORE (UNCHANGED)
+  # OTP CORE
   # ===============================
 
   def generate_otp
@@ -24,32 +33,31 @@ class User < ApplicationRecord
   end
 
   def verify_otp(otp_attempt)
-  return false if otp_locked?
-  return false unless otp_secret_key.present? && otp_sent_at.present?
-  return false if otp_sent_at < 5.minutes.ago
+    return false if otp_locked?
+    return false unless otp_secret_key.present? && otp_sent_at.present?
+    return false if otp_sent_at < 5.minutes.ago
 
-  totp = ROTP::TOTP.new(otp_secret_key)
+    totp = ROTP::TOTP.new(otp_secret_key)
 
-  verified = totp.verify(
-    otp_attempt,
-    at: otp_sent_at,
-    drift_behind: 30,
-    drift_ahead: 30
-  )
-
-  if verified
-    update!(
-      failed_otp_attempts: 0,
-      otp_locked_until: nil,
-      phone_verified: true
+    verified = totp.verify(
+      otp_attempt,
+      at: otp_sent_at,
+      drift_behind: 30,
+      drift_ahead: 30
     )
-    true
-  else
-    increment_failed_otp_attempts
-    false
-  end
-end
 
+    if verified
+      update!(
+        failed_otp_attempts: 0,
+        otp_locked_until: nil,
+        phone_verified: true
+      )
+      true
+    else
+      increment_failed_otp_attempts
+      false
+    end
+  end
 
   def otp_locked?
     otp_locked_until.present? && otp_locked_until > Time.current
@@ -64,10 +72,6 @@ end
     )
   end
 
-  # ======================================================
-  # 🔁 MODIFIED (BUT SAME METHOD NAME — SAFE)
-  # ======================================================
-
   def send_otp_via_sms
     otp = generate_otp
     update!(otp_sent_at: Time.current)
@@ -77,15 +81,11 @@ end
       Rails.logger.info "OTP sent via WhatsApp"
     rescue => e
       Rails.logger.error "WhatsApp failed: #{e.message}"
-      send_email_otp(otp)
+      send_email_otp(otp) if email.present?
     end
 
     otp
   end
-
-  # ===============================
-  # WHATSAPP (ALREADY EXISTS)
-  # ===============================
 
   def send_twilio_whatsapp(otp)
     client = Twilio::REST::Client.new(
@@ -103,18 +103,10 @@ end
     )
   end
 
-  # ===============================
-  # 🆕 EMAIL FALLBACK (NEW)
-  # ===============================
-
   def send_email_otp(otp)
     return unless email.present?
     UserMailer.otp_email(self, otp).deliver_later
   end
-
-  # ===============================
-  # JWT (UNCHANGED)
-  # ===============================
 
   def generate_jwt
     JWT.encode(jwt_payload, ENV.fetch('DEVISE_JWT_SECRET_KEY'), 'HS256')
@@ -131,10 +123,6 @@ end
       exp: 24.hours.from_now.to_i
     }
   end
-
-  # ===============================
-  # AUTH HELPERS (UNCHANGED)
-  # ===============================
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
@@ -158,6 +146,7 @@ end
   end
 
   def format_phone_number
+    return if phone_number.blank?
     phone = Phonelib.parse(phone_number)
     self.phone_number = phone.e164 if phone.valid?
   end

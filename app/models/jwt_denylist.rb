@@ -1,8 +1,9 @@
 class JwtDenylist < ApplicationRecord
-  include Devise::JWT::RevocationStrategies::Denylist
-
   belongs_to :user
 
-  validates :jti, presence: true, uniqueness: true
-  validates :exp, presence: true
+  # Attributes:
+  #   :jti (string)
+  #   :exp (datetime)
+  #   :user_id (integer)
+
 end
